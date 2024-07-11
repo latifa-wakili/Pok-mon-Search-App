@@ -15,7 +15,7 @@ const pokemonSpDefense = document.getElementById('special-defense');
 const pokemonSpeed = document.getElementById('speed');
 
 const pokemonSearch = () => {
-  const pokeValue = searchInput.value.toLowerCase (); 
+  const pokeValue=searchInput.value.toLowerCase(); 
   const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
   fetch(pokeurl)
     .then(response => response.json())
@@ -41,12 +41,12 @@ const pokemonSearch = () => {
       pokemonSprites.appendChild(sprite);
     }).catch(error => {
       console.log(error);
-      resetPokemonData();
+      resetPokemonData(resetPokemonData);
       alert('Pokémon not found');    
-});
+    });
 };
 const resetPokemonData = () => {
-    if (pokemonSprite) {
+  if (pokemonSprite) {
     pokemonSprite.remove();
   }
   pokemonName.textContent = '';

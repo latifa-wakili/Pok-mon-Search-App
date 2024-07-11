@@ -95,6 +95,9 @@ input:focus button:focus {
   color: #333;
 }
 
+.pokemon-table td {
+  text-align: center;
+}
 .pokemon-table th .pokemon-table td {
   padding: 10px;
   border: 1px solid #ddd;
@@ -103,8 +106,4 @@ input:focus button:focus {
 .pokemon-table th {
   background: #007bff;
   color: #fff;
-}
-
-.pokemon-table td {
-  text-align: center;
 }
