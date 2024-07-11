@@ -98,6 +98,7 @@ input:focus button:focus {
 .pokemon-table td {
   text-align: center;
 }
+
 .pokemon-table th .pokemon-table td {
   padding: 10px;
   border: 1px solid #ddd;
