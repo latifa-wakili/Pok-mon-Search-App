@@ -21,6 +21,13 @@ h1 {
   margin-bottom: 20px;
 }
 
+button {
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
 input button {
   padding: 10px;
   margin: 5px;
@@ -29,21 +36,13 @@ input button {
   border-radius: 5px;
 }
 
-button {
-  background: #007BFF;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s ease;
+button:hover {
+  background: #0056b3;
 }
 
 input:focus button:focus {
   outline: none;
   border-color: #888;
-}
-
-
-button:hover {
-  background: #0056b3;
 }
 
 #pokemon-info {
@@ -84,16 +83,16 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.pokemon-name-id span, .pokemon-size span {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-}
-
 .pokemon-table {
   margin-top: 20px;
   width: 100%;
   border-collapse: collapse;
+}
+
+.pokemon-name-id span .pokemon-size span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
 .pokemon-table th .pokemon-table td {
