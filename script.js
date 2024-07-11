@@ -1,25 +1,25 @@
-const searchInput = document.getElementById("search-input");
-const searchButton = document.getElementById("search-button");
-const pokemonName = document.getElementById("pokemon-name");
-const pokemonId = document.getElementById("pokemon-id");
-const pokemonWeight = document.getElementById("weight");
-const pokemonHeight = document.getElementById("height");
-const pokemonTypes = document.getElementById("types");
-const pokemonSprites = document.getElementById("sprite-img");
-const pokemonSprite = document.getElementById("sprite");
-const pokemonHp = document.getElementById("hp");
-const pokemonAttack = document.getElementById("attack");
-const pokemonDefense = document.getElementById("defense");
-const pokemonSpAttack = document.getElementById("special-attack");
-const pokemonSpDefense = document.getElementById("special-defense");
-const pokemonSpeed = document.getElementById("speed");
+const searchInput = document.getElementById('search-input');
+const searchButton = document.getElementById('search-button');
+const pokemonName = document.getElementById('pokemon-name');
+const pokemonId = document.getElementById('pokemon-id');
+const pokemonWeight = document.getElementById('weight');
+const pokemonHeight = document.getElementById('height');
+const pokemonTypes = document.getElementById('types');
+const pokemonSprites = document.getElementById('sprite-img');
+const pokemonSprite = document.getElementById('sprite');
+const pokemonHp = document.getElementById('hp');
+const pokemonAttack = document.getElementById('attack');
+const pokemonDefense = document.getElementById('defense');
+const pokemonSpAttack = document.getElementById('special-attack');
+const pokemonSpDefense = document.getElementById('special-defense');
+const pokemonSpeed = document.getElementById('speed');
 
-const pokemonSearch = () =>{
- const pokeValue = searchInput.value.toLowerCase(); 
- const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
-fetch(pokeurl)
-.then(response => response.json())
-.then(data => {
+const pokemonSearch = () => {
+  const pokeValue = searchInput.value.toLowerCase(); 
+  const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
+  fetch(pokeurl)
+    .then(response => response.json())
+    .then(data => {
     pokemonName.textContent = data.name.toUpperCase();
     pokemonId.textContent = `#${data.id}`;
     pokemonWeight.textContent = `Weight: ${data.weight}`;
@@ -46,20 +46,20 @@ fetch(pokeurl)
 })
 };
 const resetPokemonData = () => {
-    if(pokemonSprite){
-        pokemonSprite.remove();
+    if(pokemonSprite) {
+    pokemonSprite.remove();
     }
-    pokemonName.textContent = "";
-    pokemonId.textContent = "";
-    pokemonWeight.textContent = "";
-    pokemonHeight.textContent = "";
-    pokemonHp.textContent = "";
-    pokemonAttack.textContent = "";
-    pokemonDefense.textContent = "";
-    pokemonSpAttack.textContent = "";
-    pokemonSpDefense.textContent = "";
-    pokemonSpeed.textContent = "";
-    pokemonTypes.textContent = "";
-    pokemonSprites.innerHTML = "";
+  pokemonName.textContent = '';
+  pokemonId.textContent = '';
+  pokemonWeight.textContent = '';
+  pokemonHeight.textContent = '';
+  pokemonHp.textContent = '';
+  pokemonAttack.textContent = '';
+  pokemonDefense.textContent = '';
+  pokemonSpAttack.textContent = '';
+  pokemonSpDefense.textContent = '';
+  pokemonSpeed.textContent = '';
+  pokemonTypes.textContent = '';
+  pokemonSprites.innerHTML = '';
 }
 searchButton.addEventListener("click",pokemonSearch);
