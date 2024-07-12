@@ -34,15 +34,14 @@ const pokemonSearch = () => {
       data.types.forEach((type) => {
         pokemonTypes.innerHTML += `<span>${type.type.name.toUpperCase()}</span>`;
       });
-      let sprite = document.createElement('img');
+      const sprite = document.createElement('img');
       sprite.src = data.sprites.front_default;
       sprite.id = 'sprite';
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
     }).catch((error) => {
-      console.log(error);
       resetPokemonData(resetPokemonData);
-      alert('Pokémon not found');   
+      alert('Pokémon not found');
     });
 };
 const resetPokemonData = () => {
