@@ -40,7 +40,6 @@ const pokemonSearch = () => {
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
     }).catch(() => {
-      resetPokemonData(resetPokemonData);
     });
 };
 const resetPokemonData = () => {
