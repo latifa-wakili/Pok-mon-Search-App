@@ -18,8 +18,8 @@ const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
   const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
   fetch(pokeurl)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       pokemonName.textContent = data.name.toUpperCase();
       pokemonId.textContent = `#${data.id}`;
       pokemonWeight.textContent = `Weight: ${data.weight}`;
@@ -39,7 +39,7 @@ const pokemonSearch = () => {
       sprite.id = 'sprite';
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
-    }).catch(error => {
+    }).catch((error) => {
       console.log(error);
       resetPokemonData(resetPokemonData);
       alert('Pokémon not found');   
