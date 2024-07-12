@@ -39,7 +39,7 @@ const pokemonSearch = () => {
       sprite.id = 'sprite';
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
-    }).catch((error) => {
+    }).catch(() => {
       resetPokemonData(resetPokemonData);
       alert('Pokémon not found');
     });
