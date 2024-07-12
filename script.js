@@ -41,7 +41,6 @@ const pokemonSearch = () => {
       pokemonSprites.appendChild(sprite);
     }).catch(() => {
       resetPokemonData(resetPokemonData);
-      alert('Pokémon not found');
     });
 };
 const resetPokemonData = () => {
