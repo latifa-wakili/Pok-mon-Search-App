@@ -17,7 +17,7 @@ const pokemonSpeed = document.getElementById('speed');
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
   if (pokeValue === 'red') {
-   "alert('Pokémon not found')";
+    "alert(Pokémon not found);"
     return;
   }
   const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
