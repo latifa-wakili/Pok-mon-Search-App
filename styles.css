@@ -23,7 +23,7 @@ h1 {
 
 button {
   background: #848781;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -106,5 +106,5 @@ input:focus button:focus {
 
 .pokemon-table th {
   background: #7a7e76;
-  color: #ffffff;
+  color: #fff;
 }
