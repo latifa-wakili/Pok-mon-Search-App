@@ -5,12 +5,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: linear-gradient(135deg, #f2f2f2 50%, #cfcfcf 100%);
+  background: linear-gradient(135deg, #f4fa9d 50%, #cfcfcf 100%);
 }
 
 .container {
   text-align: center;
-  background: #fff;
+  background: #b0c188;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -22,8 +22,8 @@ h1 {
 }
 
 button {
-  background: #007bff;
-  color: #fff;
+  background: #848781;
+  color: #ffffff;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -32,12 +32,12 @@ input button {
   padding: 10px;
   margin: 5px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #decccc;
   border-radius: 5px;
 }
 
 button:hover {
-  background: #0056b3;
+  background: #989d93;
 }
 
 input:focus button:focus {
@@ -101,10 +101,10 @@ input:focus button:focus {
 
 .pokemon-table th .pokemon-table td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #d4a0a0;
 }
 
 .pokemon-table th {
-  background: #007bff;
-  color: #fff;
+  background: #7a7e76;
+  color: #ffffff;
 }

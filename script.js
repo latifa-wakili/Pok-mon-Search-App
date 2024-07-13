@@ -47,6 +47,9 @@ const pokemonSearch = () => {
     });
 };
 const resetPokemonData = () => {
+  if (pokemonSprite) {
+    pokemonSprite.remove();
+  }
   pokemonName.textContent = '';
   pokemonId.textContent = '';
   pokemonWeight.textContent = '';
