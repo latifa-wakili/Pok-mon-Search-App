@@ -63,5 +63,7 @@ const resetPokemonData = () => {
   pokemonTypes.textContent = '';
 };
 
-searchButton.addEventListener('click', pokemonSearch);
-
+searchButton.addEventListener('click', () => {
+  resetPokemonData();
+  pokemonSearch();
+});
