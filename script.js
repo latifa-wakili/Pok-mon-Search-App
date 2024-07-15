@@ -45,10 +45,9 @@ const pokemonSearch = () => {
     }).catch(() => {
     });
 };
+
+// Function to reset Pokemon data
 const resetPokemonData = () => {
-  if (pokemonSprite) {
-    pokemonSprite.remove();
-  }
   pokemonName.textContent = '';
   pokemonId.textContent = '';
   pokemonWeight.textContent = '';
@@ -62,4 +61,13 @@ const resetPokemonData = () => {
   pokemonTypes.textContent = '';
   pokemonSprite.innerHTML = '';
 };
-searchButton.addEventListener('click', pokemonSearch);
+
+// Event listener for search button
+searchButton.addEventListener('click', ()=>{
+  resetPokemonData();
+  pokemonSearch();
+});
+
+
+// Event listener for reset button (example, if used in UI)
+// resetButton.addEventListener('click', resetPokemonData); // Uncomment if you add reset button in UI
