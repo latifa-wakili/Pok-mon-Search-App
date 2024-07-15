@@ -68,6 +68,5 @@ searchButton.addEventListener('click', ()=>{
   pokemonSearch();
 });
 
-
 // Event listener for reset button (example, if used in UI)
 // resetButton.addEventListener('click', resetPokemonData); // Uncomment if you add reset button in UI
