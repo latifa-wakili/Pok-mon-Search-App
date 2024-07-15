@@ -6,7 +6,6 @@ const pokemonWeight = document.getElementById('weight');
 const pokemonHeight = document.getElementById('height');
 const pokemonTypes = document.getElementById('types');
 const pokemonSprites = document.getElementById('sprite-img');
-const pokemonSprite = document.getElementById('sprite');
 const pokemonHp = document.getElementById('hp');
 const pokemonAttack = document.getElementById('attack');
 const pokemonDefense = document.getElementById('defense');
@@ -17,7 +16,7 @@ const pokemonSpeed = document.getElementById('speed');
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
   if (pokeValue === 'red') {
-    alert('Pokémon not found');
+    console.log('Pokémon not found'); // Replace alert with console.log or handle differently
   }
   const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
   fetch(pokeurl)
@@ -42,12 +41,17 @@ const pokemonSearch = () => {
       sprite.id = 'sprite';
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
-    }).catch(() => {
+    })
+    .catch((error) => {
+      console.error('Error fetching Pokémon data:', error);
     });
 };
 
-// Function to reset Pokemon data
+
 const resetPokemonData = () => {
+  if (pokemonSprites) {
+    pokemonSprites.innerHtml = "";
+  }
   pokemonName.textContent = '';
   pokemonId.textContent = '';
   pokemonWeight.textContent = '';
@@ -59,14 +63,9 @@ const resetPokemonData = () => {
   pokemonSpDefense.textContent = '';
   pokemonSpeed.textContent = '';
   pokemonTypes.textContent = '';
-  pokemonSprite.innerHTML = '';
+  pokemonSprites.innerHTML = '';
 };
 
-// Event listener for search button
-searchButton.addEventListener('click', ()=>{
-  resetPokemonData();
-  pokemonSearch();
-});
+searchButton.addEventListener('click', pokemonSearch);
 
-// Event listener for reset button (example, if used in UI)
-// resetButton.addEventListener('click', resetPokemonData); // Uncomment if you add reset button in UI
+
