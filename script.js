@@ -16,7 +16,8 @@ const pokemonSpeed = document.getElementById('speed');
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
   if (pokeValue === 'red') {
-    console.log('Pokémon not found'); // Replace alert with console.log or handle differently
+    alert('Pokémon not found');
+    return;
   }
   const pokeurl = `https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue}`;
   fetch(pokeurl)
@@ -42,16 +43,13 @@ const pokemonSearch = () => {
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
     })
-    .catch((error) => {
-      console.error('Error fetching Pokémon data:', error);
+    .catch(() => {
+      console.error('Failed to fetch Pokémon data');
     });
 };
 
-
 const resetPokemonData = () => {
-  if (pokemonSprites) {
-    pokemonSprites.innerHtml = "";
-  }
+  pokemonSprites.innerHTML = '';
   pokemonName.textContent = '';
   pokemonId.textContent = '';
   pokemonWeight.textContent = '';
@@ -63,9 +61,7 @@ const resetPokemonData = () => {
   pokemonSpDefense.textContent = '';
   pokemonSpeed.textContent = '';
   pokemonTypes.textContent = '';
-  pokemonSprites.innerHTML = '';
 };
 
 searchButton.addEventListener('click', pokemonSearch);
-
 
