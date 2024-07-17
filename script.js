@@ -1,69 +1,72 @@
-const searchInput = document.getElementById('search-input');
-const searchButton = document.getElementById('search-button');
-const pokemonName = document.getElementById('pokemon-name');
-const pokemonId = document.getElementById('pokemon-id');
-const pokemonWeight = document.getElementById('weight');
-const pokemonHeight = document.getElementById('height');
-const pokemonTypes = document.getElementById('types');
-const pokemonSprites = document.getElementById('sprite-img');
-const pokemonSprite = document.getElementById('sprite');
-const pokemonHp = document.getElementById('hp');
-const pokemonAttack = document.getElementById('attack');
-const pokemonDefense = document.getElementById('defense');
-const pokemonSpAttack = document.getElementById('special-attack');
-const pokemonSpDefense = document.getElementById('special-defense');
-const pokemonSpeed = document.getElementById('speed');
-
-const resetPokemonData = () => {
-  if (pokemonSprite) {
-    pokemonSprite.remove();
+document.getElementById('search-button').addEventListener('click', function() {
+  const query = document.getElementById('search-input').value.trim().toLowerCase();
+  if (query) {
+    fetchPokemon(query);
   }
-  pokemonName.textContent = '';
-  pokemonId.textContent = '';
-  pokemonWeight.textContent = '';
-  pokemonHeight.textContent = '';
-  pokemonHp.textContent = '';
-  pokemonAttack.textContent = '';
-  pokemonDefense.textContent = '';
-  pokemonSpAttack.textContent = '';
-  pokemonSpDefense.textContent = '';
-  pokemonSpeed.textContent = '';
-  pokemonTypes.textContent = '';
-  pokemonSprites.innerHTML = '';
-};
+});
 
-const pokemonSearch = () => {
-  const pokeValue = searchInput.value.toLowerCase();
-  const pokeurl = https://pokeapi-proxy.freecodecamp.rocks/api/v2/pokemon/${pokeValue
-  };
-  fetch(pokeurl)
-    .then((response) => response.json())
-    .then((data) => {
-      pokemonName.textContent = data.name.toUpperCase();
-      pokemonId.textContent = #${data.id};
-      pokemonWeight.textContent = Weight: ${data.weight};
-      pokemonHeight.textContent = Height: ${data.height};
-      pokemonHp.textContent = data.stats[0].base_stat;
-      pokemonAttack.textContent = data.stats[1].base_stat;
-      pokemonDefense.textContent = data.stats[2].base_stat;
-      pokemonSpAttack.textContent = data.stats[3].base_stat;
-      pokemonSpDefense.textContent = data.stats[4].base_stat;
-      pokemonSpeed.textContent = data.stats[5].base_stat;
-      pokemonTypes.innerHTML = '';
-      data.types.forEach((type) => {
-        pokemonTypes.innerHTML += <span>${type.type.name.toUpperCase()}</span>;
-      });
-      const sprite = document.createElement('img');
-      sprite.src = data.sprites.front_default;
-      sprite.id = 'sprite';
-      pokemonSprites.innerHTML = '';
-      pokemonSprites.appendChild(sprite);
-    }).catch((error) => {
-      console.error(error); // Handled using console.error instead of console.log
-      resetPokemonData();
-      // Replacing alert with a more user-friendly method (e.g., displaying a message on the page)
-      pokemonName.textContent = 'Pokémon not found';
+function fetchPokemon(query) {
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/${query}`;
+
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Pokémon not found');
+      }
+      return response.json();
+    })
+    .then(data => {
+      displayPokemon(data);
+    })
+    .catch(error => {
+      alert(error.message);
+      clearPokemonInfo();
     });
-};
+}
 
-searchButton.addEventListener('click', pokemonSearch);
+function displayPokemon(pokemon) {
+  document.getElementById('pokemon-name').textContent = pokemon.name.toUpperCase();
+  document.getElementById('pokemon-id').textContent = `#${pokemon.id}`;
+  document.getElementById('weight').textContent = `Weight: ${pokemon.weight}`;
+  document.getElementById('height').textContent = `Height: ${pokemon.height}`;
+
+  document.getElementById('hp').textContent = pokemon.stats[0].base_stat;
+  document.getElementById('attack').textContent = pokemon.stats[1].base_stat;
+  document.getElementById('defense').textContent = pokemon.stats[2].base_stat;
+  document.getElementById('special-attack').textContent = pokemon.stats[3].base_stat;
+  document.getElementById('special-defense').textContent = pokemon.stats[4].base_stat;
+  document.getElementById('speed').textContent = pokemon.stats[5].base_stat;
+
+  const image = document.createElement('img');
+  image.id = 'sprite';
+  image.src = pokemon.sprites.front_default;
+  image.alt = pokemon.name;
+  document.getElementById('pokemon-image').innerHTML = '';
+  document.getElementById('pokemon-image').appendChild(image);
+
+  const typesContainer = document.getElementById('types');
+  typesContainer.innerHTML = ''; // Clear previous types
+  pokemon.types.forEach(typeInfo => {
+    const typeElement = document.createElement('div');
+    typeElement.textContent = typeInfo.type.name.toUpperCase();
+    typesContainer.appendChild(typeElement);
+  });
+
+  document.getElementById('pokemon-info').style.display = 'block';
+}
+
+function clearPokemonInfo() {
+  document.getElementById('pokemon-info').style.display = 'none';
+  document.getElementById('pokemon-name').textContent = '';
+  document.getElementById('pokemon-id').textContent = '';
+  document.getElementById('pokemon-image').innerHTML = '';
+  document.getElementById('weight').textContent = '';
+  document.getElementById('height').textContent = '';
+  document.getElementById('types').innerHTML = '';
+  document.getElementById('hp').textContent = '';
+  document.getElementById('attack').textContent = '';
+  document.getElementById('defense').textContent = '';
+  document.getElementById('special-attack').textContent = '';
+  document.getElementById('special-defense').textContent = '';
+  document.getElementById('speed').textContent = '';
+}
