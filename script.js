@@ -34,14 +34,15 @@ const resetPokemonData = () => {
 
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
-  const pokeurl =' https://pokeapi-proxy.freecodecamp.rocks/api/v2/pokemon/${pokeValue}';
+  const pokeurl = https://pokeapi-proxy.freecodecamp.rocks/api/v2/pokemon/${pokeValue 
+};
   fetch(pokeurl)
     .then((response) => response.json())
     .then((data) => {
       pokemonName.textContent = data.name.toUpperCase();
-      pokemonId.textContent = '#${data.id}';
-      pokemonWeight.textContent = 'Weight: ${data.weight}';
-      pokemonHeight.textContent = 'Height: ${data.height}';
+      pokemonId.textContent = #${data.id};
+      pokemonWeight.textContent = Weight: ${data.weight};
+      pokemonHeight.textContent = Height: ${data.height};
       pokemonHp.textContent = data.stats[0].base_stat;
       pokemonAttack.textContent = data.stats[1].base_stat;
       pokemonDefense.textContent = data.stats[2].base_stat;
