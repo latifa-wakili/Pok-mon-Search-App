@@ -13,6 +13,7 @@ const pokemonSpAttack = document.getElementById('special-attack');
 const pokemonSpDefense = document.getElementById('special-defense');
 const pokemonSpeed = document.getElementById('speed');
 
+
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
   if (pokeValue === 'red') {
