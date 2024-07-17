@@ -1,30 +1,30 @@
-document.getElementById('search-button').addEventListener('click', function() {
+document.getElementById('search-button').addEventListener('click', () => {
   const query = document.getElementById('search-input').value.trim().toLowerCase();
   if (query) {
     fetchPokemon(query);
   }
 });
 
-function fetchPokemon(query) {
+const fetchPokemon = (query) => {
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${query}`;
 
   fetch(apiUrl)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
         throw new Error('Pokémon not found');
       }
       return response.json();
     })
-    .then(data => {
+    .then((data) => {
       displayPokemon(data);
     })
-    .catch(error => {
+    .catch((error) => {
       alert(error.message);
       clearPokemonInfo();
     });
-}
+};
 
-function displayPokemon(pokemon) {
+const displayPokemon = (pokemon) => {
   document.getElementById('pokemon-name').textContent = pokemon.name.toUpperCase();
   document.getElementById('pokemon-id').textContent = `#${pokemon.id}`;
   document.getElementById('weight').textContent = `Weight: ${pokemon.weight}`;
@@ -46,16 +46,16 @@ function displayPokemon(pokemon) {
 
   const typesContainer = document.getElementById('types');
   typesContainer.innerHTML = ''; // Clear previous types
-  pokemon.types.forEach(typeInfo => {
+  pokemon.types.forEach((typeInfo) => {
     const typeElement = document.createElement('div');
     typeElement.textContent = typeInfo.type.name.toUpperCase();
     typesContainer.appendChild(typeElement);
   });
 
   document.getElementById('pokemon-info').style.display = 'block';
-}
+};
 
-function clearPokemonInfo() {
+const clearPokemonInfo = () => {
   document.getElementById('pokemon-info').style.display = 'none';
   document.getElementById('pokemon-name').textContent = '';
   document.getElementById('pokemon-id').textContent = '';
@@ -69,4 +69,4 @@ function clearPokemonInfo() {
   document.getElementById('special-attack').textContent = '';
   document.getElementById('special-defense').textContent = '';
   document.getElementById('speed').textContent = '';
-}
+};
