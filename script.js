@@ -34,7 +34,8 @@ const resetPokemonData = () => {
 
 const pokemonSearch = () => {
   const pokeValue = searchInput.value.toLowerCase();
-  const pokeurl = https://pokeapi-proxy.freecodecamp.rocks/api/v2/pokemon/${pokeValue};
+  const pokeurl = https://pokeapi-proxy.freecodecamp.rocks/api/v2/pokemon/${pokeValue
+  };
   fetch(pokeurl)
     .then((response) => response.json())
     .then((data) => {
