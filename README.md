@@ -1,12 +1,10 @@
 readme# Project Title 🚀
-Telephone-Number-Validator
+Pok-mon-Search-App
 ## Project Description 📝
-
-A telephone number validator created using JavaScript, HTML, and CSS is a simple web application that allows users to input a phone number and check its validity based on specific formatting rules. The application features an input field for entering the phone number, a "Check" button to validate the input, and a "Clear" button to reset the results. It provides real-time feedback by displaying messages indicating whether the entered phone number is valid or invalid. The user interface is styled with CSS to enhance visual appeal, and JavaScript handles the validation logic and user interactions.
-
+it is a pokemon search app created using HTML, CSS, JS
 
 ## Demo 📸
-![Demo](T-N-V.png)
+![Demo](Pik.png)
 ## Technologies Used 🛠️
 
 - HTML
@@ -18,11 +16,11 @@ A telephone number validator created using JavaScript, HTML, and CSS is a simple
 Provide step-by-step instructions on how to install and set up your project. Include any dependencies or prerequisites that need to be installed.
 
 ```bash
-# git@github.com:latifa-wakili/Telephone-Number-Validator.git.
+#git@github.com:latifa-wakili/Pok-mon-Search-App.git
 ```
 
 ```bash
-# cd Telephone-Number-Validator.
+# cd Pok-mon-Search-App.
 ```
 
 
