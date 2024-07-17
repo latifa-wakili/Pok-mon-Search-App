@@ -23,7 +23,7 @@ const pokemonSearch = () => {
       pokemonName.textContent = data.name.toUpperCase();
       pokemonId.textContent = '#${data.id}';
       pokemonWeight.textContent = 'Weight: ${data.weight}';
-      pokemonHeight.textContent = 'Height: ${data.height}';
+      pokemonHeight.textContent =' Height: ${data.height}';
       pokemonHp.textContent = data.stats[0].base_stat;
       pokemonAttack.textContent = data.stats[1].base_stat;
       pokemonDefense.textContent = data.stats[2].base_stat;
@@ -40,7 +40,7 @@ const pokemonSearch = () => {
       pokemonSprites.innerHTML = '';
       pokemonSprites.appendChild(sprite);
     }).catch((error) => {
-      console.log(error);
+      console.error(error);
       resetPokemonData();
       alert('Pokémon not found');
     });
