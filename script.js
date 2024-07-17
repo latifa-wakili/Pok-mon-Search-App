@@ -19,10 +19,9 @@ const pokemonSearch = () => {
     alert('Pokémon not found');
     return;
   }
-  const pokeurl = https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue
-  };
+  const pokeurl = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${pokeValue'};
   fetch(pokeurl)
-    .then((response) => response.json());
+    .then((response) => response.json())
     .then((data) => {
       pokemonName.textContent = data.name.toUpperCase();
       pokemonId.textContent = #${data.id};
