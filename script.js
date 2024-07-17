@@ -1,3 +1,4 @@
+// Define event listener and functions
 document.getElementById('search-button').addEventListener('click', () => {
   const query = document.getElementById('search-input').value.trim().toLowerCase();
   if (query) {
