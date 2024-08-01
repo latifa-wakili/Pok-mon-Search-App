@@ -4,6 +4,7 @@ Pok-mon-Search-App
 it is a pokemon search app created using HTML, CSS, JS
 
 ## Demo 📸
+https://latifa-wakili.github.io/Pok-mon-Search-App/
 ![Demo](Pik.png)
 ## Technologies Used 🛠️
 
